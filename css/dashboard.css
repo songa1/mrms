@@ -1,0 +1,136 @@
+
+
+.dash-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    margin-top: 0;
+    background-color: var(--main-color);
+    color: var(--white);
+    height: 10vh;
+}
+
+.dash-right-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.dash-right-nav img {
+    width: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dash-right-nav img:hover {
+    background-color: var(--hover-color);
+}
+
+.dash-contents {
+    margin-top: 10vh;
+    display: flex;
+    gap: 10px;
+}
+
+.dash-sidebar {
+    background-color: var(--white);
+    height: 100vh;
+    flex: 1;
+    box-shadow: var(--shadow);
+}
+
+.sidebar-contents {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sidebar-contents a {
+    text-decoration: none;
+    color: var(--black);
+    padding: 20px;
+}
+
+.sidebar-contents a:hover {
+    background-color: var(--main-bg);
+}
+
+.dash-main {
+    flex: 6;
+    padding: 10px;
+}
+
+.dash-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.active {
+    background-color: var(--border);
+}
+
+.add-box {
+    position: relative;
+}
+
+.add-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 15px;
+    background-color: var(--white);
+    right: 0;
+    border-radius: var(--main-radius);
+    border: 2px solid var(--border);
+    display: none;
+    z-index: 1;
+}
+
+.add-menu a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+.add-menu a:hover {
+    background-color: var(--main-bg);
+    border-radius: var(--main-radius);
+}
+
+.profile-box {
+    position: relative;
+}
+
+.profile-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    gap: 15px;
+    background-color: var(--white);
+    right: 0;
+    border-radius: var(--main-radius);
+    border: 2px solid var(--border);
+    display: none;
+    z-index: 1;
+}
+
+.profile-menu a {
+    text-decoration: none;
+    padding: 10px;
+}
+
+.profile-menu a:hover {
+    background-color: var(--main-bg);
+    border-radius: var(--main-radius);
+}
+
+.open {
+    display: flex;
+}

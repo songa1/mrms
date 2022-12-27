@@ -1,0 +1,42 @@
+
+.modal {
+    position: relative;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: none;
+}
+
+.modal-blur {
+    background-color: var(--black);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.6;
+}
+
+.modal-contents {
+    position: fixed;
+    background-color: var(--white);
+    top: 0;
+    left: 0;
+    right: 0;
+    min-width: 300px;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 10px;
+    border-radius: var(--main-radius);
+    box-shadow: var(--shadow);
+}
+
+.modal-header {
+    text-align: center;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+}

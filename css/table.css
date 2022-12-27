@@ -1,0 +1,26 @@
+
+
+table {
+    width: 100%;
+    text-align: start;
+    background-color: var(--white);
+    padding: 5px;
+    box-shadow: var(--shadow);
+}
+
+table, th, td {
+    border: 1px solid var(--border);
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+thead {
+    text-align: left;
+    background-color: var(--main-color);
+    padding: 10px;
+    color: var(--white);
+}
+
+tr:nth-child(even) {
+    background-color: var(--border);
+}

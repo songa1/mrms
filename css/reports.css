@@ -1,0 +1,26 @@
+.report-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.report-card {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    border-radius: var(--main-radius);
+    flex: 1;
+    text-align: center;
+}
+
+.report-card h1 {
+    background-color: var(--main-color);
+    padding: 10px;
+    color: var(--white);
+    border-top-left-radius: var(--main-radius);
+    border-top-right-radius: var(--main-radius);
+    margin: 0;
+}
+
+.report-card h2 {
+    padding: 10px;
+}
