@@ -1,6 +1,10 @@
 
 <?php
 
+$role_sql = "SELECT * FROM mr_roles";
+$role_results = $conn->query($role_sql);
+
+
 if(isset($_POST['add_user'])){
     $user_name =  $_POST['user_name'];
      $user_email =  $_POST['user_email'];
@@ -22,6 +26,8 @@ if(isset($_POST['add_user'])){
     }
 }
 
+
+if($role_results->num_rows > 0){
 ?>
 
 <div class="modal" id="user-modal">
@@ -37,8 +43,13 @@ if(isset($_POST['add_user'])){
                 <input type="text" placeholder="User department" class="input" name="user_dept">
                 <input type="tel" placeholder="User phone" class="input" name="user_phone">
                 <select class="input" name="user_role">
-                    <option value="1">Admin</option>
-                    <option value="2">User</option>
+                <?php 
+                while($row = $role_results->fetch_assoc()) {
+                    ?>
+                        <option value="<?php echo $row['role_id']; ?>"><?php echo $row['role_name']; ?></option>
+                    <?php
+                }
+                ?>
                 </select>
                 <!-- <input type="file" placeholder="User photo" class="input" name="user_photo"> -->
             </div>
@@ -50,3 +61,7 @@ if(isset($_POST['add_user'])){
         </div>
     </form>
 </div>
+
+<?php
+}
+?>
