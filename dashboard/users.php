@@ -43,6 +43,7 @@
                     <a href="./attendance.php">Attendance</a>
                     <a href="./users.php" class="active">Users</a>
                     <a href="./roles.php">Roles</a>
+                    <a href="./settings.php">Settings</a>
                 </div>
             </div>
             <div class="dash-main">
