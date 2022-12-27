@@ -1,29 +1,52 @@
 
-
-
 <?php
+
+if(isset($_POST['add_user'])){
+    $user_name =  $_POST['user_name'];
+     $user_email =  $_POST['user_email'];
+     $user_dept =  $_POST['user_dept'];
+     $user_phone =  $_POST['user_phone'];
+     $user_role = $_POST['user_role'];
+     $user_photo = "image.png";
+     $today = date('Y-m-d H:i:s');
+
+     $sql = "INSERT INTO mr_users (`user_name`, `user_email`, `user_dept`, `user_phone`, `user_role`,`user_photo`, `user_created_at`) VALUES ('$user_name', '$user_email','$user_dept','$user_phone','$user_role','$user_photo', '$today')";
+
+     if($conn->query($sql) === TRUE){
+         echo "<script>alert('User added!');</script>";
+         echo "<script>document.querySelector('.modal').style.display = 'none';</script>";
+         echo "<script>window.location.href = 'users.php'</script>";
+     } else {
+         echo $conn->error();
+         echo "<script>alert('There has been error! ');</script>";
+    }
+}
 
 ?>
 
 <div class="modal" id="user-modal">
     <div class="modal-blur"></div>
-    <div class="modal-contents">
+    <form method="POST" class="modal-contents">
         <div class="modal-header">
             <h2>Add New User</h2>
         </div>
         <div class="modal-body">
-            <form action="#">
-                <input type="text" placeholder="Enter the name" class="input">
-                <input type="number" placeholder="Enter the price" value="500" class="input">
-            </form>
+            <div>
+                <input type="text" placeholder="User name" class="input" name="user_name">
+                <input type="email" placeholder="User email" class="input" name="user_email">
+                <input type="text" placeholder="User department" class="input" name="user_dept">
+                <input type="tel" placeholder="User phone" class="input" name="user_phone">
+                <select class="input" name="user_role">
+                    <option value="1">Admin</option>
+                    <option value="2">User</option>
+                </select>
+                <!-- <input type="file" placeholder="User photo" class="input" name="user_photo"> -->
+            </div>
         </div>
+        <hr>
         <div class="modal-footer">
             <button class="btn danger" id="close-user-modal">Close</button>
-            <button class="btn">Add</button>
+            <input type="submit" name="add_user" id="add_user" class="btn" value="Add">
         </div>
-    </div>
+    </form>
 </div>
-
-<?php
-
-?>
