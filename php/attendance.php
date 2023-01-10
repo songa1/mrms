@@ -18,7 +18,7 @@ if($results->num_rows > 0){
                 <td><?php echo $row['att_price'] ?></td>
                 <td>
                     <button class="btn success">Edit</button>
-                    <button class="btn danger">Delete</button>
+                    <a href="../functions/deleteatt.php?id=<?php echo $row['att_id']; ?>" class="btn danger" >Delete</a>
                 </td>
             </tr>                       
         </tbody>
