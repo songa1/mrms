@@ -1,28 +1,35 @@
 
 <?php
 
+include '../php/authCheck.php';
+
 $role_sql = "SELECT * FROM mr_roles";
 $role_results = $conn->query($role_sql);
 
 
 if(isset($_POST['add_user'])){
-    $user_name =  $_POST['user_name'];
-     $user_email =  $_POST['user_email'];
-     $user_dept =  $_POST['user_dept'];
-     $user_phone =  $_POST['user_phone'];
-     $user_role = $_POST['user_role'];
-     $user_photo = "../assets/images/placeholder.png";
-     $today = date('Y-m-d H:i:s');
+    if($role == 5 || $role == 2){
+        echo "<script>alert('Not allowed to access this page!');</script>";
+        echo "<script>window.location.href = './attendance.php'</script>";
+    }else{
+        $user_name =  $_POST['user_name'];
+        $user_email =  $_POST['user_email'];
+        $user_dept =  $_POST['user_dept'];
+        $user_phone =  $_POST['user_phone'];
+        $user_role = $_POST['user_role'];
+        $user_photo = "../assets/images/placeholder.png";
+        $today = date('Y-m-d H:i:s');
 
-     $sql = "INSERT INTO mr_users (`user_name`, `user_email`, `user_dept`, `user_phone`, `user_role`,`user_photo`, `user_created_at`) VALUES ('$user_name', '$user_email','$user_dept','$user_phone','$user_role','$user_photo', '$today')";
+        $sql = "INSERT INTO mr_users (`user_name`, `user_email`, `user_dept`, `user_phone`, `user_role`,`user_photo`, `user_created_at`) VALUES ('$user_name', '$user_email','$user_dept','$user_phone','$user_role','$user_photo', '$today')";
 
-     if($conn->query($sql) === TRUE){
-         echo "<script>alert('User added!');</script>";
-         echo "<script>document.querySelector('.modal').style.display = 'none';</script>";
-         echo "<script>window.location.href = 'users.php'</script>";
-     } else {
-         echo $conn->error();
-         echo "<script>alert('There has been error! ');</script>";
+        if($conn->query($sql) === TRUE){
+            echo "<script>alert('User added!');</script>";
+            echo "<script>document.querySelector('.modal').style.display = 'none';</script>";
+            echo "<script>window.location.href = 'users.php'</script>";
+        } else {
+            echo $conn->error();
+            echo "<script>alert('There has been error! ');</script>";
+        }
     }
 }
 

@@ -1,5 +1,10 @@
 <?php include '../php/config.php'; 
 include '../php/authCheck.php';
+
+if($role == 5 || $role == 2){
+    echo "<script>alert('Not allowed to access this page!');</script>";
+    echo "<script>window.location.href = './attendance.php'</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,9 +47,9 @@ include '../php/authCheck.php';
             <div class="dash-sidebar">
                 <div class="sidebar-contents">
                     <a href="./reports.php">Reports</a>
-                    <a href="./attendance.php">Attendance</a>
-                    <a href="./users.php" class="active">Users</a>
-                    <a href="./roles.php">Roles</a>
+                    <?php if($role != 3) { ?><a href="./attendance.php">Attendance</a><?php } ?>
+                    <?php if($role != 3) { ?><a href="./users.php" class="active">Users</a><?php } ?>
+                    <?php if($role != 3) { ?><a href="./roles.php">Roles</a><?php }?>
                     <a href="./settings.php">Settings</a>
                 </div>
             </div>

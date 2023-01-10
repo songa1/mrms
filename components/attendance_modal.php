@@ -1,4 +1,7 @@
 <?php
+
+include '../php/authCheck.php';
+
 $sql = "SELECT * FROM mr_users";
 $results = $conn->query($sql);
 if($results->num_rows > 0){

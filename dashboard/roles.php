@@ -1,5 +1,10 @@
 <?php include '../php/config.php'; 
 include '../php/authCheck.php';
+
+if($role == 5 || $role == 2){
+    echo "<script>alert('Not allowed to access this page!');</script>";
+    echo "<script>window.location.href = './attendance.php'</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +13,7 @@ include '../php/authCheck.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Users - MINECOFIN RMS</title>
+    <title>Roles - MINECOFIN RMS</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/table.css">
@@ -41,11 +46,11 @@ include '../php/authCheck.php';
         <div class="dash-contents">
             <div class="dash-sidebar">
                 <div class="sidebar-contents">
-                    <a href="./reports.php">Reports</a>
-                    <a href="./attendance.php">Attendance</a>
-                    <a href="./users.php" >Users</a>
-                    <a href="./roles.php" class="active">Roles</a>
-                    <a href="./settings.php">Settings</a>
+                    <?php if($role != 5) { ?><a href="./reports.php">Reports</a><?php } ?>
+                    <?php if($role != 3) { ?><a href="./attendance.php">Attendance</a><?php } ?>
+                    <?php if($role != 3) { ?><a href="./users.php" >Users</a><?php } ?>
+                    <?php if($role != 3) { ?><a href="./roles.php" class="active">Roles</a><?php } ?>
+                    <?php if($role != 5) { ?><a href="./settings.php">Settings</a><?php } ?>
                 </div>
             </div>
             <div class="dash-main">

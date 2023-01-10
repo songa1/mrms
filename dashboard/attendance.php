@@ -25,8 +25,8 @@ include '../php/authCheck.php';
                     <img id="show-add-menu" src="../assets/images/add sign.png" alt="Add New sign" >
                     <div class="add-menu">
                         <a href="#" id="show-attendance-modal">Attendance</a>
-                        <a href="#" id="show-user-modal">User</a>
-                        <a href="#" id="show-role-modal">Role</a>
+                        <?php if($role != 5 || $role == 2) { ?><a href="#" id="show-user-modal">User</a><?php } ?>
+                        <?php if($role != 5 || $role == 2) { ?><a href="#" id="show-role-modal">Role</a><?php } ?>
                     </div>
                 </div>
                 <div class="profile-box">
@@ -41,11 +41,11 @@ include '../php/authCheck.php';
         <div class="dash-contents">
             <div class="dash-sidebar">
                 <div class="sidebar-contents">
-                    <a href="./reports.php">Reports</a>
+                    <?php if($role != 5 || $role == 2) { ?><a href="./reports.php">Reports</a><?php } ?>
                     <a href="./attendance.php" class="active">Attendance</a>
-                    <a href="./users.php" >Users</a>
-                    <a href="./roles.php">Roles</a>
-                    <a href="./settings.php">Settings</a>
+                    <?php if($role != 5 || $role == 2) { ?><a href="./users.php" >Users</a><?php } ?>
+                    <?php if($role != 5 || $role == 2) { ?><a href="./roles.php">Roles</a><?php } ?>
+                    <?php if($role != 5 || $role == 2) { ?><a href="./settings.php">Settings</a><?php } ?>
                 </div>
             </div>
             <div class="dash-main">

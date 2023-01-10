@@ -1,6 +1,10 @@
 
 <?php
 
+include '../php/authCheck.php';
+
+
+
 ?>
 
 <div class="modal" id="role-modal">
@@ -26,19 +30,24 @@
 <?php
 
 if(isset($_POST['add_role'])){
-    $role_name =  $_POST['role_name'];
-    $role_desc =  $_POST['role_desc'];
-    $today = date('Y-m-d H:i:s');
+    if($role == 5 || $role == 2){
+        echo "<script>alert('Not allowed to access this page!');</script>";
+        echo "<script>window.location.href = './attendance.php'</script>";
+    }else{
+        $role_name =  $_POST['role_name'];
+        $role_desc =  $_POST['role_desc'];
+        $today = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO mr_roles (`role_name`, `role_desc`, `role_created_at`) VALUES ('$role_name', '$role_desc', '$today')";
+        $sql = "INSERT INTO mr_roles (`role_name`, `role_desc`, `role_created_at`) VALUES ('$role_name', '$role_desc', '$today')";
 
-    if($conn->query($sql) === TRUE){  
-        echo "<script>alert('Role added!')</script>"; 
-        echo "<script>document.querySelector('.modal').style.display = 'none';</script>";
-        echo "<script>window.location.href = 'roles.php'</script>";
-    } else {
-        echo "<script>alert('There has been error!');</script>";
-        echo $conn->error;
+        if($conn->query($sql) === TRUE){  
+            echo "<script>alert('Role added!')</script>"; 
+            echo "<script>document.querySelector('.modal').style.display = 'none';</script>";
+            echo "<script>window.location.href = 'roles.php'</script>";
+        } else {
+            echo "<script>alert('There has been error!');</script>";
+            echo $conn->error;
+        }
     }
 }
 

@@ -48,6 +48,7 @@ include './php/config.php';
 
             if($count == 1){
                 setcookie('auth', $row['user_name'], time() + (86400 * 30), "/");
+                setcookie('user_role', $row['user_role'], time() + (86400 * 30), "/");
                 setcookie('image', $row['user_photo'], time() + (86400 * 30), "/");
                 echo "<script>alert('Successfully logged in, click OK to continue!')</script>";
                 echo "<script>window.location.href = './dashboard/reports.php';</script>"; 
