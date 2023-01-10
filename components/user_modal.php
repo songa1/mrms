@@ -11,7 +11,7 @@ if(isset($_POST['add_user'])){
      $user_dept =  $_POST['user_dept'];
      $user_phone =  $_POST['user_phone'];
      $user_role = $_POST['user_role'];
-     $user_photo = "image.png";
+     $user_photo = "../assets/images/placeholder.png";
      $today = date('Y-m-d H:i:s');
 
      $sql = "INSERT INTO mr_users (`user_name`, `user_email`, `user_dept`, `user_phone`, `user_role`,`user_photo`, `user_created_at`) VALUES ('$user_name', '$user_email','$user_dept','$user_phone','$user_role','$user_photo', '$today')";

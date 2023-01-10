@@ -1,4 +1,6 @@
-<?php include '../php/config.php'; ?>
+<?php include '../php/config.php'; 
+include '../php/authCheck.php';
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +29,13 @@
                         <a href="#" id="show-role-modal">Role</a>
                     </div>
                 </div>
-                <img src="../assets/images/steven.png" alt="Profile picture">
+                <div class="profile-box">
+                    <img id="show-profile-menu" src="<?php echo $_COOKIE['image']; ?>" alt="Profile picture">
+                    <div class="profile-menu">
+                        <a href="#">Profile</a>
+                        <a href="../php/logout.php">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="dash-contents">

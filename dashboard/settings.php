@@ -2,6 +2,8 @@
 
 include '../php/config.php'; 
 
+include '../php/authCheck.php';
+
 $price_sql = "SELECT * FROM mr_price WHERE price_id=1";
 $price_one = mysqli_query($conn, $price_sql);
 $price = mysqli_fetch_array($price_one, MYSQLI_ASSOC);
@@ -37,7 +39,13 @@ $price_amount = $price['price_amount'];
                         <a href="#" id="show-role-modal">Role</a>
                     </div>
                 </div>
-                <img src="../assets/images/steven.png" alt="Profile picture">
+                <div class="profile-box">
+                    <img id="show-profile-menu" src="<?php echo $_COOKIE['image']; ?>" alt="Profile picture">
+                    <div class="profile-menu">
+                        <a href="#">Profile</a>
+                        <a href="../php/logout.php">Logout</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="dash-contents">
@@ -74,7 +82,7 @@ $price_amount = $price['price_amount'];
     include '../components/attendance_modal.php';
 
     if(isset($_POST['update_price_btn'])){
-        $price_data = $_POST['price_data'];
+        $price_data = $_POST['price-data'];
 
         $update_price_sql = "UPDATE mr_price SET price_amount='$price_data' WHERE price_id=1";
 

@@ -16,7 +16,7 @@ if($result->num_rows > 0){
                 <td>
                     <button class="btn">Password Reset</button>
                     <button class="btn success">Edit</button>
-                    <button class="btn danger">Delete</button>
+                    <a href="../functions/deleteusers.php?id=<?php echo $row['user_id']; ?>" class="btn danger" >Delete</a>
                 </td>
             </tr>
         </tbody>

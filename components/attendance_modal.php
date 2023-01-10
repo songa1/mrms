@@ -21,7 +21,6 @@ if($results->num_rows > 0){
                 }
                 ?>
                 </select>
-                <input type="number" placeholder="Enter the price" value="500" class="input" name="att_price">
             </div>
         </div>
         <hr>
@@ -37,10 +36,15 @@ if($results->num_rows > 0){
 
 if(isset($_POST['record_attendance'])){
     $user_id = $_POST['user_id'];
-    $att_price = $_POST['att_price'];
     $today = date('Y-m-d H:i:s');
 
-    $sql = "INSERT INTO mr_att (`user_id`, `att_price`, `att_created_at`) VALUES ('$user_id', '$att_price', '$today')";
+    $price_sql = "SELECT * FROM mr_price WHERE price_id=1";
+    $price_one = mysqli_query($conn, $price_sql);
+    $price = mysqli_fetch_array($price_one, MYSQLI_ASSOC);
+    $price_amount = $price['price_amount'];
+
+    $sql = "INSERT INTO mr_att (`user_id`, `att_price`, `att_created_at`) VALUES ('$user_id', '$price_amount', '$today')";
+
 
     if($conn->query($sql) === TRUE){
         echo "<script>alert('Attendance recorded!');</script>";

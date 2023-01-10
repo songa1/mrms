@@ -14,7 +14,7 @@ if($results->num_rows > 0){
                 <td><?php echo $row['role_desc'] ?></td>
                 <td>
                     <button class="btn success">Edit</button>
-                    <button class="btn danger">Delete</button>
+                    <a href="../functions/deleteroles.php?id=<?php echo $row['role_id']; ?>" class="btn danger" >Delete</a>
                 </td>
             </tr>                       
         </tbody>
